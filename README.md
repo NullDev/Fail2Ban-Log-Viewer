@@ -2,7 +2,7 @@
 
 A small Bash script to print out the Fail2Ban log in a organized way.
 
-To get it working:
+##To get it working:
 
 - Upload the script somewhere
 - Log in to your SSH terminal
@@ -12,3 +12,10 @@ To get it working:
   `./fail2ban.sh`
   
 That's it.
+
+##Features:
+
+- Display Hostanem and IP
+- Display IP and Auth Method used (For example SSH or Nginx Auth)
+- Fallback path if user specified path fails
+- Search feature is Fallback path and user path fail
