@@ -15,7 +15,7 @@ That's it.
 
 ##Features:
 
-- Display Hostanem and IP
+- Display Hostname and IP
 - Display IP and Auth Method used (For example SSH or Nginx Auth)
 - Fallback path if user specified path fails
 - Search feature if Fallback path and user path fail
