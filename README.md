@@ -19,3 +19,5 @@ That's it.
 - Display IP and Auth Method used (For example SSH or Nginx Auth)
 - Fallback path if user specified path fails
 - Search feature if Fallback path and user path fail
+- Able to pass CLI Argument `-p` or `--path` to use a custom path for the log file at start.
+  Example: `./fail2ban.sh -p /your/log/path.log` or `./fail2ban.sh --path /your/log/path.log`
