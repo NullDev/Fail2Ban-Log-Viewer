@@ -18,4 +18,4 @@ That's it.
 - Display Hostanem and IP
 - Display IP and Auth Method used (For example SSH or Nginx Auth)
 - Fallback path if user specified path fails
-- Search feature is Fallback path and user path fail
+- Search feature if Fallback path and user path fail
