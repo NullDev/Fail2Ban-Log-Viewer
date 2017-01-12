@@ -1,8 +1,6 @@
 # Fail2Ban Log Viewer
 
-##Note: This is the InDev branche. 
-##Do not use that for anything but testing / improving!
-##This file can contain errors.
+##Note: This is the InDev branche. Do not use that for anything but testing / improving! `This file can contain errors.`
 
 A small Bash script to print out the Fail2Ban log in a organized way.
 
