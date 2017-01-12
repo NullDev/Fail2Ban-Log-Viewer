@@ -1,9 +1,8 @@
 #!/bin/bash
 ##############################
-# Copyright (c) 2016 NullDev #
 #----------------------------#
-# SSH Fail2Ban Access Log -  #
-# Reader for EpticMC.com     #
+# Basic SSH Fail2Ban Log     #
+# Reader with sorted output  #
 #----------------------------#
 #-Set Fail2Ban log path here-#
 #----------------------------#
