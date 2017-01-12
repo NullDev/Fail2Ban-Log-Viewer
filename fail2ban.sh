@@ -9,10 +9,16 @@
 F2B=/var/log/fail2ban.log
 #----------------------------#
 ##############################
+DEF=/var/log/fail2ban.log
 echo -e $'\nLoading...'
 if [ ! -f $F2B ]; then
+if [ ! -f $DEF ]; then
 printf "\n#########\n# ERROR #\n#########\n\nFile not found!\nCheck the path in the script\n\n"
 exit
+else
+printf "\n########\n# INFO #\n########\n\nFile was found at %s\n(Default Path)\n" $DEF
+F2B=$DEF
+fi
 fi
 printf "\n+---------------------------------------+\n| FAIL2BAN IP ADRESS REPORT - by Shadow |\n+---------------------------------------+\n\n"
 printf "########################\n#   HOSTNAME AND IP    #\n#----------------------#\n# Format:              #\n# AMOUNT HOSTNAME (IP) #\n########################\n\n"
