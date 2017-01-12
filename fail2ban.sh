@@ -16,6 +16,10 @@ COL_GRN=$(tput setaf 2)
 COL_YLW=$(tput setaf 3)
 COL_BLE=$(tput setaf 4)
 COL_RST=$(tput sgr0)
+#Check for help here
+if [ "${@}" = "--help" -o "${@}" = "-h" -o "${@}" = "-?" ]
+# ...
+fi
 while [[ $# -gt 1 ]]
 do
 arg="$1"
