@@ -11,11 +11,13 @@ F2B=/var/log/fail2ban.log
 ##############################
 #Fallback
 DEF=/var/log/fail2ban.log
+#TERM COL
 COL_RED=$(tput setaf 1)
 COL_GRN=$(tput setaf 2)
 COL_YLW=$(tput setaf 3)
 COL_BLE=$(tput setaf 4)
 COL_RST=$(tput sgr0)
+pkg=fail2ban
 printf "\n------------------------------------------------------------------\n"
 if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
    printf "\n\n${COL_YLW}########\n# ${COL_GRN}HELP ${COL_YLW}#\n########\n\n${COL_RST}--path | -p PATH     :"
