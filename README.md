@@ -21,6 +21,7 @@ That's it.
 - Fallback path if user specified path fails
 - Auto-Search feature if Fallback path and user path fail
 - Use new path if file was found
+- Check if Fail2Ban is installed
 - Able to pass CLI Argument `-p` or `--path` to use a custom path for the log file at start.
   
   Example: `./fail2ban.sh -p /your/log/path.log` or `./fail2ban.sh --path /your/log/path.log`
