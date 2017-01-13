@@ -20,7 +20,7 @@ That's it.
 - Allows a user specified path inside the script
 - Fallback path if user specified path fails
 - Auto-Search feature if Fallback path and user path fail
-- If search failed, prompt for path without terminating script
+- Use new path if file was found
 - Able to pass CLI Argument `-p` or `--path` to use a custom path for the log file at start.
   
   Example: `./fail2ban.sh -p /your/log/path.log` or `./fail2ban.sh --path /your/log/path.log`
