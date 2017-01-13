@@ -29,7 +29,7 @@ if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
 fi
 if [ "${*}" = "--force" ] || [ "${*}" = "-f" ]; then
    printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
-   printf "Forcing start!${COL_RST}\n\n"
+   printf "Forcing start!${COL_RST}\n"
    frc=1
    shift
 fi
