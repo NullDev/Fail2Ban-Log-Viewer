@@ -1,5 +1,7 @@
 # Fail2Ban Log Viewer
 
+[![Build Status](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer.svg?branch=master)](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer)
+
 A small Bash script to print out the Fail2Ban log in a organized way.
 
 ##To get it working:
