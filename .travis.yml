@@ -1,4 +1,4 @@
 language: bash
 
 script:
-    - bash fail2ban.sh
+    - 'bash fail2ban.sh -f'
