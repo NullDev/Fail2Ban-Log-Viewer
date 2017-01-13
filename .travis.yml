@@ -1,4 +1,5 @@
 language: bash
 sudo: false
-
+before_script:
+ - chmod +x ./fail2ban.sh
 script: make test
