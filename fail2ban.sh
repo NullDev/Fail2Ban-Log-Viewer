@@ -44,6 +44,16 @@ esac
 shift
 done
 echo -e $'\nLoading...'
+# --- test --- #
+if [[ ! "$#" = 0 ]]; then #Not in use
+   if [[ $F2B != $DEF ]]; then
+      if [[ $_tmpF2B != $2 ]]; then
+         printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
+         printf "The path in the script was changed to '%s'. Using it.\n" $F2B
+      fi
+   fi
+fi
+# --- test --- #
 if [ ! -f $F2B ]; then
    if [ ! -f $DEF ]; then
       printf "\n${COL_YLW}#########\n# ${COL_RED}ERROR ${COL_YLW}#\n#########\n\n${COL_RST}File not found!\nCheck the path in the script\n\nOr do you want me to search for the log? [y/n]\n\n"
