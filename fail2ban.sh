@@ -97,7 +97,8 @@ if [ ! -f $F2B ]; then
             exit 0
          fi
       else
-         printf "\nFile path incorrect. Forcing end!"
+         printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_RST}"
+         printf "File path incorrect. Forcing end!\n"
          exit 0
       fi
    else
