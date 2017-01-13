@@ -22,3 +22,5 @@ That's it.
 - Able to pass CLI Argument `-p` or `--path` to use a custom path for the log file at start.
   
   Example: `./fail2ban.sh -p /your/log/path.log` or `./fail2ban.sh --path /your/log/path.log`
+
+- Able to handle unknown CLI Arguments aswell as `--help`, `-h` or `-?`
