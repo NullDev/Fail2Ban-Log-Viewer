@@ -76,24 +76,28 @@ done
 echo -e $'\nLoading...'
 if [ ! -f $F2B ]; then
    if [ ! -f $DEF ]; then
-      printf "\n${COL_YLW}#########\n# ${COL_RED}ERROR ${COL_YLW}#\n#########\n\n${COL_RST}"
-      printf "File not found!\nCheck the path in the script\n\nOr do you want me to search for the log? [y/n]\n\n"
-      stty_cfg=$(stty -g)
-      stty raw -echo ; input=$(head -c 1) ; stty $stty_cfg
-      if echo "$input" | grep -iq "^y" ;then
-         printf "${COL_YLW}Searching... (Could take some time)${COL_RST}\n"
-         LOC=$(find / -type f -iname "fail2ban.log")
-         if [ "$LOC" '!=' '' ]; then
-            printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
-            printf "File was found at %s!\n${COL_RST}" $LOC
-            F2B=$LOC
+      if [[ $frc != 1 ]]; then
+         printf "\n${COL_YLW}#########\n# ${COL_RED}ERROR ${COL_YLW}#\n#########\n\n${COL_RST}"
+         printf "File not found!\nCheck the path in the script\n\nOr do you want me to search for the log? [y/n]\n\n${COL_RST}"
+         stty_cfg=$(stty -g)
+         stty raw -echo ; input=$(head -c 1) ; stty $stty_cfg
+         if echo "$input" | grep -iq "^y" ;then
+            printf "${COL_YLW}Searching... (Could take some time)${COL_RST}\n"
+            LOC=$(find / -type f -iname "fail2ban.log")
+            if [ "$LOC" '!=' '' ]; then
+               printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
+               printf "File was found at %s!\n${COL_RST}" $LOC
+               F2B=$LOC
+            else
+               printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_RST}"
+               printf "File was not found!\n"
+               exit
+            fi
          else
-            printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_RST}"
-            printf "File was not found!\n"
             exit
          fi
       else
-         exit
+        exit
       fi
    else
       printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_RST}"
