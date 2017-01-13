@@ -1,4 +1,4 @@
 .PHONY: Clean Test
 
 test:
-	test/fail2ban.sh
+	fail2ban.sh
