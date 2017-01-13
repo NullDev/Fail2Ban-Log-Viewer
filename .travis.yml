@@ -2,4 +2,4 @@ language: bash
 sudo: false
 
 script:
-    - bash fail2ban.sh
+    - make test
