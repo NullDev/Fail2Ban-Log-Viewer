@@ -18,21 +18,31 @@ COL_YLW=$(tput setaf 3)
 COL_BLE=$(tput setaf 4)
 COL_RST=$(tput sgr0)
 pkg=fail2ban
+frc=0
 printf "\n------------------------------------------------------------------\n"
 if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
-   printf "\n\n${COL_YLW}########\n# ${COL_GRN}HELP ${COL_YLW}#\n########\n\n${COL_RST}--path | -p PATH     :"
-   printf "     Sets the path for the Log\n--help | -h | -?     :     Displays this help menu\n"
+   printf "\n\n${COL_YLW}########\n# ${COL_GRN}HELP ${COL_YLW}#\n########\n\n${COL_RST}--path  | -p PATH     :"
+   printf "     Sets the path for the Log\n--help  | -h | -?     :     Displays this help menu"
+   printf "\n--force | -f          :     Forces the start and doesn't ask for user input\n"
    printf "\n[Here will be more soon]\n\n\n"
    exit
 fi
-f2b_ok=$(dpkg-query -W --showformat='${Status}\n' $pkg|grep "install ok installed")
-if [ "" == "$f2b_ok" ]; then
-   printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_BLE}"
-   printf "Fail2Ban is not installed on this system. If there is stil a log, you can continue.\nDo you want to continue? [y/n]"
-   stty_cfg_t=$(stty -g)
-   stty raw -echo ; input_t=$(head -c 1) ; stty $stty_cfg_t
-   if echo "$input_t" | grep -iq "^n" ;then
-      exit
+if [ "${*}" = "--force" ] || [ "${*}" = "-f" ]; then
+   printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
+   printf "Forcing start!${COL_RST}\n\n"
+   frc=1
+   shift
+fi
+if [[ $frc != 1 ]]; then
+   f2b_ok=$(dpkg-query -W --showformat='${Status}\n' $pkg|grep "install ok installed")
+   if [ "" == "$f2b_ok" ]; then
+      printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_BLE}"
+      printf "Fail2Ban is not installed on this system. If there is stil a log, you can continue.\nDo you want to continue? [y/n]${COL_RST}"
+      stty_cfg_t=$(stty -g)
+      stty raw -echo ; input_t=$(head -c 1) ; stty $stty_cfg_t
+      if echo "$input_t" | grep -iq "^n" ;then
+         exit
+      fi
    fi
 fi
 #This is a pretty weird way to do it but it works
