@@ -97,7 +97,8 @@ if [ ! -f $F2B ]; then
             exit
          fi
       else
-        exit
+         printf "\nFile path incorrect. Forcing end!"
+         exit 0
       fi
    else
       printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_RST}"
