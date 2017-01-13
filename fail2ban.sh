@@ -23,6 +23,16 @@ if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
    printf "\n[Here will be more soon]\n\n\n"
    exit
 fi
+f2b_ok=$(dpkg-query -W --showformat='${Status}\n' $pkg|grep "install ok installed")
+if [ "" == "$f2b_ok" ]; then
+   printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_BLE}"
+   printf "Fail2Ban is not installed on this system. If there is stil a log, you can continue.\nDo you want to continue? [y/n]"
+   stty_cfg_t=$(stty -g)
+   stty raw -echo ; input_t=$(head -c 1) ; stty $stty_cfg_t
+   if echo "$input_t" | grep -iq "^n" ;then
+      exit
+   fi
+fi
 #This is a pretty weird way to do it but it works
 if [[ ! -z "$@" ]]; then
    if [[ "$@" != "-p"* ]]; then
