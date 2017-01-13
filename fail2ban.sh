@@ -25,7 +25,7 @@ if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
    printf "     Sets the path for the Log\n--help  | -h | -?     :     Displays this help menu"
    printf "\n--force | -f          :     Forces the start and doesn't ask for user input\n"
    printf "\n[Here will be more soon]\n\n\n"
-   exit
+   exit 0
 fi
 if [ "${*}" = "--force" ] || [ "${*}" = "-f" ]; then
    printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
@@ -41,7 +41,7 @@ if [[ $frc != 1 ]]; then
       stty_cfg_t=$(stty -g)
       stty raw -echo ; input_t=$(head -c 1) ; stty $stty_cfg_t
       if echo "$input_t" | grep -iq "^n" ;then
-         exit
+         exit 0
       fi
    fi
 fi
@@ -91,10 +91,10 @@ if [ ! -f $F2B ]; then
             else
                printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_RST}"
                printf "File was not found!\n"
-               exit
+               exit 0
             fi
          else
-            exit
+            exit 0
          fi
       else
          printf "\nFile path incorrect. Forcing end!"
@@ -118,4 +118,4 @@ printf "${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              
 printf " ${COL_GRN}AMOUNT IP [EXPLOIT]  ${COL_YLW}#\n########################\n\n${COL_RST}"
 grep "Ban " $F2B | awk -F[\ \:] '{print $10,$8}' | sort | uniq -c | sort -n
 printf "\n"
-exit
+exit 0
