@@ -11,6 +11,7 @@ F2B=/var/log/fail2ban.log
 ##############################
 #Fallback
 DEF=/var/log/fail2ban.log
+#TERM COL
 COL_RED=$(tput setaf 1)
 COL_GRN=$(tput setaf 2)
 COL_YLW=$(tput setaf 3)
@@ -44,8 +45,9 @@ esac
 shift
 done
 echo -e $'\nLoading...'
+################
 # --- test --- #
-if [[ ! "$#" = 0 ]]; then #Not in use
+if [[ ! "$#" = 0 ]]; then #Not in use / Not Working
    if [[ $F2B != $DEF ]]; then
       if [[ $_tmpF2B != $2 ]]; then
          printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
@@ -54,6 +56,7 @@ if [[ ! "$#" = 0 ]]; then #Not in use
    fi
 fi
 # --- test --- #
+################
 if [ ! -f $F2B ]; then
    if [ ! -f $DEF ]; then
       printf "\n${COL_YLW}#########\n# ${COL_RED}ERROR ${COL_YLW}#\n#########\n\n${COL_RST}File not found!\nCheck the path in the script\n\nOr do you want me to search for the log? [y/n]\n\n"
