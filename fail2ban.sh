@@ -16,28 +16,37 @@ COL_GRN=$(tput setaf 2)
 COL_YLW=$(tput setaf 3)
 COL_BLE=$(tput setaf 4)
 COL_RST=$(tput sgr0)
+printf "\n------------------------------------------------------------------\n"
+if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
+   printf "\n\n${COL_YLW}########\n# ${COL_GRN}HELP ${COL_YLW}#\n########\n\n${COL_RST}--path | -p PATH     :     Sets the path for the Log\n--help | -h | -?     :     Displays this help menu\n"
+   printf "\n[Here will be more soon]\n\n\n"
+   exit
+fi
+#This is a pretty weird way to do it but it works
+if [[ ! -z "$@" ]]; then
+   if [[ "$@" != "-p"* ]]; then
+      if [[ "$@" != "--path"* ]]; then
+         printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_BLE}You entered an Invalid argument. Ignoring...\n${COL_RST}"
+      fi
+   fi
+fi
 while [[ $# -gt 1 ]]
 do
-arg="$1"
-# Not in use
-if [ $1 == "-h" || $1 == "--help" || $1 == "-?" ]; then
-printf "### HELP ###\n\n--path | -p PATH     :     Sets the path for the Log\n--help | -h | -?     :     Displays this help menu"
-exit
-fi
-case $arg in
-   -p|--path)
-      F2B="$2"
-      printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}Path has been set to %s${COL_RST}\n" $F2B
-      shift 
-   ;;
-   --default)
-      DEFAULT=YES
-   ;;
-   *)
-      printf "You entered an Invalid argument. Ignoring...\n" #Not in use
-   ;;
-esac
-shift
+   arg="$1"
+   case $arg in
+      -p|--path)
+         F2B="$2"
+         printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}Path has been set to '${COL_BLE}%s${COL_GRN}'${COL_RST}\n" $F2B
+         shift 
+      ;;
+      --default)
+         DEFAULT=YES
+      ;;
+      *)
+         #Null
+      ;;
+   esac
+   shift
 done
 echo -e $'\nLoading...'
 if [ ! -f $F2B ]; then
@@ -59,16 +68,16 @@ if [ ! -f $F2B ]; then
          exit
       fi
    else
-      printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_RST}Loaction %s not found.\n${COL_GRN}But file was found at %s\n(Default Path)\n${COL_RST}" $F2B $DEF
+      printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_RST}Loaction '%s' not found.\n${COL_GRN}But file was found at %s\n(Default Path)\n${COL_RST}" $F2B $DEF
       F2B=$DEF
    fi
 fi
 printf "${COL_YLW}\n+----------------------------------------+\n| ${COL_GRN}FAIL2BAN IP ADRESS REPORT ${COL_RST}- ${COL_BLE}by NullDev ${COL_YLW}|\n"
 printf "+----------------------------------------+\n\n${COL_RST}"
-printf "${COL_YLW}########################\n#   ${COL_BLE}HOSTNAME AND IP    ${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              ${COL_YLW}#\n"
+printf "${COL_YLW}########################\n#   ${COL_BLE}HOSTNAME ${COL_RST}AND ${COL_BLE}IP    ${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              ${COL_YLW}#\n"
 printf "# ${COL_GRN}AMOUNT HOSTNAME (IP) ${COL_YLW}#\n########################\n\n${COL_RST}"
 awk '($(NF-1) = /Ban/){print $NF,"("$NF")"}' $F2B | sort | logresolve | uniq -c | sort -n
-printf "${COL_YLW}\n########################\n#    ${COL_BLE}IP AND EXPLOIT    ${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              ${COL_YLW}#\n#"
+printf "${COL_YLW}\n########################\n#    ${COL_BLE}IP ${COL_RST}AND ${COL_BLE}EXPLOIT    ${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              ${COL_YLW}#\n#"
 printf " ${COL_GRN}AMOUNT IP [EXPLOIT]  ${COL_YLW}#\n########################\n\n${COL_RST}"
 grep "Ban " $F2B | awk -F[\ \:] '{print $10,$8}' | sort | uniq -c | sort -n
 printf "\n"
