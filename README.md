@@ -24,5 +24,5 @@ That's it.
   
   Example: `./fail2ban.sh -p /your/log/path.log` or `./fail2ban.sh --path /your/log/path.log`
 
-- Able to handle unknown CLI Arguments aswell as `--help`, `-h` or `-?`
+- Able to handle unknown CLI Arguments, aswell as `--help`, `-h` or `-?`
 - More comming soon!
