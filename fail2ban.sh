@@ -18,7 +18,8 @@ COL_BLE=$(tput setaf 4)
 COL_RST=$(tput sgr0)
 printf "\n------------------------------------------------------------------\n"
 if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
-   printf "\n\n${COL_YLW}########\n# ${COL_GRN}HELP ${COL_YLW}#\n########\n\n${COL_RST}--path | -p PATH     :     Sets the path for the Log\n--help | -h | -?     :     Displays this help menu\n"
+   printf "\n\n${COL_YLW}########\n# ${COL_GRN}HELP ${COL_YLW}#\n########\n\n${COL_RST}--path | -p PATH     :"
+   printf "     Sets the path for the Log\n--help | -h | -?     :     Displays this help menu\n"
    printf "\n[Here will be more soon]\n\n\n"
    exit
 fi
@@ -26,7 +27,8 @@ fi
 if [[ ! -z "$@" ]]; then
    if [[ "$@" != "-p"* ]]; then
       if [[ "$@" != "--path"* ]]; then
-         printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_BLE}You entered an Invalid argument. Ignoring...\n${COL_RST}"
+         printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_BLE}"
+         printf "You entered an Invalid argument. Ignoring...\n${COL_RST}"
       fi
    fi
 fi
@@ -36,7 +38,8 @@ do
    case $arg in
       -p|--path)
          F2B="$2"
-         printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}Path has been set to '${COL_BLE}%s${COL_GRN}'${COL_RST}\n" $F2B
+         printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
+         printf "Path has been set to '${COL_BLE}%s${COL_GRN}'${COL_RST}\n" $F2B
          shift 
       ;;
       --default)
@@ -51,33 +54,40 @@ done
 echo -e $'\nLoading...'
 if [ ! -f $F2B ]; then
    if [ ! -f $DEF ]; then
-      printf "\n${COL_YLW}#########\n# ${COL_RED}ERROR ${COL_YLW}#\n#########\n\n${COL_RST}File not found!\nCheck the path in the script\n\nOr do you want me to search for the log? [y/n]\n\n"
+      printf "\n${COL_YLW}#########\n# ${COL_RED}ERROR ${COL_YLW}#\n#########\n\n${COL_RST}"
+      printf "File not found!\nCheck the path in the script\n\nOr do you want me to search for the log? [y/n]\n\n"
       stty_cfg=$(stty -g)
       stty raw -echo ; input=$(head -c 1) ; stty $stty_cfg
       if echo "$input" | grep -iq "^y" ;then
          printf "${COL_YLW}Searching... (Could take some time)${COL_RST}\n"
          LOC=$(find / -type f -iname "fail2ban.log")
          if [ "$LOC" '!=' '' ]; then
-            printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}File was found at %s!\n${COL_RST}" $LOC
+            printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_GRN}"
+            printf "File was found at %s!\n${COL_RST}" $LOC
             F2B=$LOC
          else
-            printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_RST}File was not found!\n"
+            printf "\n${COL_YLW}###########\n# ${COL_RED}WARNING ${COL_YLW}#\n###########\n\n${COL_RST}"
+            printf "File was not found!\n"
             exit
          fi
       else
          exit
       fi
    else
-      printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_RST}Loaction '%s' not found.\n${COL_GRN}But file was found at %s\n(Default Path)\n${COL_RST}" $F2B $DEF
+      printf "\n${COL_YLW}########\n# ${COL_BLE}INFO ${COL_YLW}#\n########\n\n${COL_RST}"
+      printf "Loaction '%s' not found.\n${COL_GRN}But file was found at %s\n(Default Path)\n${COL_RST}" $F2B $DEF
       F2B=$DEF
    fi
 fi
-printf "${COL_YLW}\n+----------------------------------------+\n| ${COL_GRN}FAIL2BAN IP ADRESS REPORT ${COL_RST}- ${COL_BLE}by NullDev ${COL_YLW}|\n"
+printf "${COL_YLW}\n+----------------------------------------+\n| ${COL_GRN}FAIL2BAN IP ADRESS REPORT ${COL_RST}- "
+printf "${COL_BLE}by NullDev ${COL_YLW}|\n"
 printf "+----------------------------------------+\n\n${COL_RST}"
-printf "${COL_YLW}########################\n#   ${COL_BLE}HOSTNAME ${COL_RST}AND ${COL_BLE}IP    ${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              ${COL_YLW}#\n"
+printf "${COL_YLW}########################\n#   ${COL_BLE}HOSTNAME ${COL_RST}AND ${COL_BLE}IP    "
+printf "${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              ${COL_YLW}#\n"
 printf "# ${COL_GRN}AMOUNT HOSTNAME (IP) ${COL_YLW}#\n########################\n\n${COL_RST}"
 awk '($(NF-1) = /Ban/){print $NF,"("$NF")"}' $F2B | sort | logresolve | uniq -c | sort -n
-printf "${COL_YLW}\n########################\n#    ${COL_BLE}IP ${COL_RST}AND ${COL_BLE}EXPLOIT    ${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              ${COL_YLW}#\n#"
+printf "${COL_YLW}\n########################\n#    ${COL_BLE}IP ${COL_RST}AND ${COL_BLE}EXPLOIT    "
+printf "${COL_YLW}#\n#----------------------#\n# ${COL_GRN}Format:              ${COL_YLW}#\n#"
 printf " ${COL_GRN}AMOUNT IP [EXPLOIT]  ${COL_YLW}#\n########################\n\n${COL_RST}"
 grep "Ban " $F2B | awk -F[\ \:] '{print $10,$8}' | sort | uniq -c | sort -n
 printf "\n"
