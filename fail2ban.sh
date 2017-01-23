@@ -19,8 +19,18 @@ COL_BLE=$(tput setaf 4)
 COL_RST=$(tput sgr0)
 pkg=fail2ban
 frc=0
+function cls { 
+	XA=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+	YA=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+	printf "\033c" #Clear
+	printf "\e[8;${XA};${YA}t" #Maximize
+	printf "\e[5t" #Focus
+   #Maximize formats the window very weird when it's minimized again.
+   #But thats not fatal.
+}
 printf "\n------------------------------------------------------------------\n"
 if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
+   cls
    printf "\n\n${COL_YLW}########\n${COL_YLW}# ${COL_GRN}HELP ${COL_YLW}#\n${COL_YLW}########\n\n${COL_RST}--path  | -p PATH     :"
    printf "     Sets the path for the Log\n--help  | -h | -?     :     Displays this help menu"
    printf "\n--force | -f          :     Forces the start and doesn't ask for user input\n"
@@ -34,6 +44,7 @@ if [ "${*}" = "--force" ] || [ "${*}" = "-f" ]; then
    shift
 fi
 if [[ $frc != 1 ]]; then
+   cls
    f2b_ok=$(dpkg-query -W --showformat='${Status}\n' $pkg|grep "install ok installed")
    if [ "" == "$f2b_ok" ]; then
       printf "\n${COL_YLW}###########\n${COL_YLW}# ${COL_RED}WARNING ${COL_YLW}#\n${COL_YLW}###########\n\n"
@@ -47,6 +58,7 @@ if [[ $frc != 1 ]]; then
 fi
 #This is a pretty weird way to do it but it works
 if [[ ! -z "$@" ]]; then
+   cls
    if [[ "$@" != "-p"* ]]; then
       if [[ "$@" != "--path"* ]]; then
          printf "\n${COL_YLW}###########\n${COL_YLW}# ${COL_RED}WARNING ${COL_YLW}#\n${COL_YLW}###########\n\n"
@@ -74,6 +86,7 @@ do
    shift
 done
 echo -e $'\nLoading...'
+cls
 if [ ! -f $F2B ]; then
    if [ ! -f $DEF ]; then
       if [[ $frc != 1 ]]; then
