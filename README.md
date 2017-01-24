@@ -1,6 +1,6 @@
 # Fail2Ban Log Viewer
 
-[![Build Status](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer.svg?branch=master)](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer)  [![Release](https://img.shields.io/github/release/NLDev/Fail2Ban-Log-Viewer.svg)](https://github.com/NLDev/Fail2Ban-Log-Viewer/releases)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/LICENSE)
+[![Build Status](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer.svg?branch=master)](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/LICENSE)
 
 A small Bash script to print out the Fail2Ban log in a organized way.
 
