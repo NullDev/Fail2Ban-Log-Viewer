@@ -34,3 +34,5 @@ That's it.
 
 - CLI Argument `--force` or `-f` which forces the start and doesn't prompt for input
 - More comming soon!
+
+<img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/f2b-help.png" />
