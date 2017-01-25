@@ -44,5 +44,5 @@ That's it.
 <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike> Main <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike><br><br>
 <img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/scr1.png" />
 <br><br><strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike> Help <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike><br><br>
-<img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/src2.png" />
+<img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/scr2.png" />
 </p>
