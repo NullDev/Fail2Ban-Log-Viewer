@@ -36,8 +36,9 @@ That's it.
 - More comming soon!
 
 <p align="center">
-<strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike> Main <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike><br>
+<br>
+<strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike> Main <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike><br><br>
 <img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/scr1.png" />
-<br><strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike> Help <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike><br>
+<br><br><strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike> Help <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike><br><br>
 <img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/src2.png" />
 </p>
