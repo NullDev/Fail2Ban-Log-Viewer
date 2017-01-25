@@ -105,7 +105,7 @@ if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
    printf "     Sets the path for the Log\n--help   | -h | -?     :     Displays this help menu"
    printf "\n--force  | -f          :     Forces the start and doesn't ask for user input"
    printf "\n--github | -g          :     Displays and open's (if possible) the GitHub link"
-   printf "\n--clear  | -c          :     Purges the Log file after after displaying it\n"
+   printf "\n--clear  | -c          :     Purges the Log file after displaying it\n"
    printf "\n[Here will be more soon]\n\n\n"
    exit 0
 fi
