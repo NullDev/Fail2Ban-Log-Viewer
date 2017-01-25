@@ -71,7 +71,7 @@ function main {
         cls
         if [[ $purge = 1 ]]; then
            printf "\n${COL_YLW}########\n${COL_YLW}# ${COL_BLE}INFO ${COL_YLW}#\n${COL_YLW}########\n\n"
-           printf "${COL_GRN}Seems like the log is empty!\n\n${COL_RST}"
+           printf "${COL_GRN}Seems like the log is already empty! Nothing to clear.\n\n${COL_RST}"
         else
            printf "\n${COL_YLW}########\n${COL_YLW}# ${COL_BLE}INFO ${COL_YLW}#\n${COL_YLW}########\n\n"
            printf "${COL_GRN}Seems like the log is empty!\n\n${COL_RST}"
