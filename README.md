@@ -36,6 +36,6 @@ That's it.
 - More comming soon!
 
 Main:<br>
-<img src="http://www.lpkfusa.com/Images/placeholder.jpg" />
+<img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/scr1.png" />
 <br>Help:<br>
-<img src="http://www.lpkfusa.com/Images/placeholder.jpg" />
+<img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/src2.png" />
