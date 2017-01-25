@@ -22,6 +22,10 @@ That's it.
 - Allows a user specified path inside the script
 - Fallback path if user specified path fails
 - Auto-Search feature if Fallback path and user path fail
+- Purge/Clear the Fail2Ban.log after displaying
+
+  Example: `./fail2ban.sh --clear` or `./fail2ban.sh -c`
+  
 - Use new path if file was found
 - Check if Fail2Ban is installed
 - Able to pass CLI Argument `-p` or `--path` to use a custom path for the log file at start.
