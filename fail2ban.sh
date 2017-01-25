@@ -68,8 +68,14 @@ function main {
     fi
     cont=$(<$F2B)
     if [[ -z "${cont// }" ]]; then
-        printf "\n${COL_YLW}########\n${COL_YLW}# ${COL_BLE}INFO ${COL_YLW}#\n${COL_YLW}########\n\n"
-        printf "${COL_GRN}Seems like the log is empty!\n\n${COL_RST}"
+        cls
+        if [[ $purge = 1 ]]; then
+           printf "\n${COL_YLW}########\n${COL_YLW}# ${COL_BLE}INFO ${COL_YLW}#\n${COL_YLW}########\n\n"
+           printf "${COL_GRN}Seems like the log is empty!\n\n${COL_RST}"
+        else
+           printf "\n${COL_YLW}########\n${COL_YLW}# ${COL_BLE}INFO ${COL_YLW}#\n${COL_YLW}########\n\n"
+           printf "${COL_GRN}Seems like the log is empty!\n\n${COL_RST}"
+        fi
 	exit 0
     fi
     printf "\n${COL_YLW}+" && yes "-" | head -40 | tr -d "\n" && printf "+\n${COL_YLW}| ${COL_GRN}FAIL2BAN IP ADRESS REPORT ${COL_RST}- "
@@ -123,7 +129,6 @@ if [ "${*}" = "--clear" ] || [ "${*}" = "-c" ]; then
    purge=1
    main
    shift
-
 fi
 if [[ $frc != 1 ]]; then
    cls
