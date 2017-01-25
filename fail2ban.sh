@@ -21,34 +21,33 @@ pkg=fail2ban
 git=http://github.com/NLDev/Fail2Ban-Log-Viewer
 frc=0
 function cls { 
-	XA=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
-	YA=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
-	printf "\033c" #Clear
-	printf "\e[8;${XA};${YA}t" #Maximize
-	printf "\e[5t" #Focus
+        XA=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+        YA=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+        printf "\033c" #Clear
+        printf "\e[8;${XA};${YA}t" #Maximize
+        printf "\e[5t" #Focus
    #Maximize formats the window very weird when it's minimized again.
    #But thats not fatal.
 }
 printf "\n------------------------------------------------------------------\n"
 if [ "${*}" = "--help" ] || [ "${*}" = "-h" ] || [ "${*}" = "-?" ]; then
    cls
-   printf "\n\n${COL_YLW}########\n${COL_YLW}# ${COL_GRN}HELP ${COL_YLW}#\n${COL_YLW}########\n\n${COL_RST}--path  | -p PATH     :"
-   printf "     Sets the path for the Log\n--help  | -h | -?     :     Displays this help menu"
-   printf "\n--force | -f          :     Forces the start and doesn't ask for user input\n"
-   printf "--github | -g         :     Displays and open's (if possible) the GitHub link\n"
+   printf "\n\n${COL_YLW}########\n${COL_YLW}# ${COL_GRN}HELP ${COL_YLW}#\n${COL_YLW}########\n\n${COL_RST}--path   | -p PATH     :"
+   printf "     Sets the path for the Log\n--help   | -h | -?     :     Displays this help menu"
+   printf "\n--force  | -f          :     Forces the start and doesn't ask for user input"
+   printf "\n--github | -g          :     Displays and open's (if possible) the GitHub link\n"
    printf "\n[Here will be more soon]\n\n\n"
    exit 0
 fi
 if [ "${*}" = "--github" ] || [ "${*}" = "-g" ]; then
-	logo
-	printf "Link to the GitHub:\n\n"
-	printf "${git}\n\n"
-	if which xdg-open > /dev/null; then 
-		xdg-open $git > /dev/null
-	elif which gnome-open > /dev/null; then 
-		gnome-open $git > /dev/null
-	fi
-	exit 0
+        printf "Link to the GitHub:\n\n"
+        printf "${git}\n\n"
+        if which xdg-open > /dev/null; then 
+                xdg-open $git > /dev/null
+        elif which gnome-open > /dev/null; then 
+                gnome-open $git > /dev/null
+        fi
+        exit 0
 fi
 if [ "${*}" = "--force" ] || [ "${*}" = "-f" ]; then
    printf "\n${COL_YLW}########\n${COL_YLW}# ${COL_BLE}INFO ${COL_YLW}#\n${COL_YLW}########\n\n"
