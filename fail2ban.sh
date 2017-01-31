@@ -78,7 +78,7 @@ function main {
                exit 0
             fi
          else
-            printf "\n ${COL_YLW}###########\n ${COL_YLW}# ${COL_RED}WARNING ${COL_YLW}#\n$ {COL_YLW}###########\n\n${COL_RST}"
+            printf "\n ${COL_YLW}###########\n ${COL_YLW}# ${COL_RED}WARNING ${COL_YLW}#\n ${COL_YLW}###########\n\n${COL_RST}"
             printf " File path incorrect. Forcing end!\n"
             exit 0
          fi
