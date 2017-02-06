@@ -31,25 +31,25 @@ function cls {
    #Maximize formats the window very weird when it's minimized again - also doesnt work on CLI only environments
 }
 function padding {
-	if [[ ${#this} = 10 ]]; then printf "${COL_YLW} +" && yes "-" | head -126 | tr -d "\n"
-	elif [[ ${#this} > 10 ]]; then
-		let dif="100 - (10 - ${#this})"
-		printf "${COL_YLW} +" && yes "-" | head -$dif | tr -d "\n" && printf "+"
-	elif [[ ${#this} < 10 ]]; then
-		let dif="100 + (10 + ${#this})"
-		printf "${COL_YLW} +" && yes "-" | head -$dif | tr -d "\n" && printf "+"
-	fi
+   if [[ ${#this} = 10 ]]; then printf "${COL_YLW} +" && yes "-" | head -126 | tr -d "\n"
+   elif [[ ${#this} > 10 ]]; then
+      let dif="100 - (10 - ${#this})"
+      printf "${COL_YLW} +" && yes "-" | head -$dif | tr -d "\n" && printf "+"
+   elif [[ ${#this} < 10 ]]; then
+      let dif="100 + (10 + ${#this})"
+      printf "${COL_YLW} +" && yes "-" | head -$dif | tr -d "\n" && printf "+"
+   fi
 }
 function logo {
-printf "\n\n"
-printf "                      ___.-------.___\n                  _.-\' ___.--;--.___ \`-._\n               .-\' _.-\'  ${COL_BLE}/  .+.  \\${COL_RST}  \`-._ \`-.\n"
-printf "             .\' .-\'      ${COL_BLE}|-|-o-|-|${COL_RST}      \`-. \`.\n            (_ <O__      ${COL_BLE}\  \`+\'  /${COL_RST}      __O> _)\n"
-printf "              \`--._\`\`-..__${COL_BLE}\`._|_.\'${COL_RST}__..-\'\'_.--\'\n                    \`\`--._________.--\'\'\n\n"
-printf "          ${COL_YLW}______    _ _ ${COL_BLE} _____ ${COL_YLW}______\n"
-printf "          ${COL_YLW}|  ___|  (_) |${COL_BLE}/ __  \\${COL_YLW}| ___ \ \n          ${COL_YLW}| |_ __ _ _| |${COL_BLE}\`\' / /\'${COL_YLW}| |_/ / __ _ _ ___  \n"
-printf "          ${COL_YLW}|  _/ _\` | | |${COL_BLE}  / /  ${COL_YLW}| ___ \/ _\` | \'_  \ \n"
-printf "          ${COL_YLW}| || (_| | | |${COL_BLE}./ /___${COL_YLW}| |_/ / (_| | | | |\n          ${COL_YLW}\_| \__,_|_|_|${COL_BLE}\_____/${COL_YLW}\____/ \__,_|_| |_|"
-printf "\n\n${COL_RST}"
+   printf "\n\n"
+   printf "                      ___.-------.___\n                  _.-\' ___.--;--.___ \`-._\n               .-\' _.-\'  ${COL_BLE}/  .+.  \\${COL_RST}  \`-._ \`-.\n"
+   printf "             .\' .-\'      ${COL_BLE}|-|-o-|-|${COL_RST}      \`-. \`.\n            (_ <O__      ${COL_BLE}\  \`+\'  /${COL_RST}      __O> _)\n"
+   printf "              \`--._\`\`-..__${COL_BLE}\`._|_.\'${COL_RST}__..-\'\'_.--\'\n                    \`\`--._________.--\'\'\n\n"
+   printf "          ${COL_YLW}______    _ _ ${COL_BLE} _____ ${COL_YLW}______\n"
+   printf "          ${COL_YLW}|  ___|  (_) |${COL_BLE}/ __  \\${COL_YLW}| ___ \ \n          ${COL_YLW}| |_ __ _ _| |${COL_BLE}\`\' / /\'${COL_YLW}| |_/ / __ _ _ ___  \n"
+   printf "          ${COL_YLW}|  _/ _\` | | |${COL_BLE}  / /  ${COL_YLW}| ___ \/ _\` | \'_  \ \n"
+   printf "          ${COL_YLW}| || (_| | | |${COL_BLE}./ /___${COL_YLW}| |_/ / (_| | | | |\n          ${COL_YLW}\_| \__,_|_|_|${COL_BLE}\_____/${COL_YLW}\____/ \__,_|_| |_|"
+   printf "\n\n${COL_RST}"
 }
 function main {
    echo -e $'\nLoading...'
