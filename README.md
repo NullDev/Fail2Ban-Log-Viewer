@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer.svg?branch=master)](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/LICENSE)
 
-A small script to print out the Fail2Ban log in a organized way.
+A script to print out the Fail2Ban log in a organized way.
 
 ##To get it working:
 
