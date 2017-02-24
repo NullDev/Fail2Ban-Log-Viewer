@@ -37,7 +37,9 @@ That's it.
   Example: `./fail2ban.sh --help`, `./fail2ban.sh -h` or `./fail2ban.sh -?`
 
 - CLI Argument `--force` or `-f` which forces the start and doesn't prompt for input
-- More comming soon!
+- More comming soon!<br><br>
+
+### Screenshots:
 
 <p align="center">
 <br>
