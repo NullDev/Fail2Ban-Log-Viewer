@@ -4,7 +4,7 @@
 
 A script to print out the Fail2Ban log in a organized way.
 
-##To get it working:
+## To get it working:
 
 - Upload the script somewhere
 - Log in to your SSH terminal
@@ -15,7 +15,7 @@ A script to print out the Fail2Ban log in a organized way.
   
 That's it.
 
-##Features:
+## Features:
 
 - Display Hostname and IP
 - Display IP and Auth Method used (For example SSH or Nginx Auth)
