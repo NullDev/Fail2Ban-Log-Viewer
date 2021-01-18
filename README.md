@@ -1,6 +1,6 @@
 # Fail2Ban Log Viewer
 
-[![Build Status](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer.svg?branch=master)](https://travis-ci.org/NLDev/Fail2Ban-Log-Viewer)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/LICENSE)
+[![Build Status](https://travis-ci.org/NullDev/Fail2Ban-Log-Viewer.svg?branch=master)](https://travis-ci.org/NullDev/Fail2Ban-Log-Viewer)  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/NullDev/Fail2Ban-Log-Viewer/master/LICENSE)
 
 A script to print out the Fail2Ban log in a organized way.
 
@@ -44,7 +44,7 @@ That's it.
 <p align="center">
 <br>
 <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike> Main <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike><br><br>
-<img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/scr1.png" />
+<img src="https://raw.githubusercontent.com/NullDev/Fail2Ban-Log-Viewer/master/.src/scr1.png" />
 <br><br><strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike> Help <strike>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strike><br><br>
-<img src="https://raw.githubusercontent.com/NLDev/Fail2Ban-Log-Viewer/master/.src/scr3.png" />
+<img src="https://raw.githubusercontent.com/NullDev/Fail2Ban-Log-Viewer/master/.src/scr3.png" />
 </p>
